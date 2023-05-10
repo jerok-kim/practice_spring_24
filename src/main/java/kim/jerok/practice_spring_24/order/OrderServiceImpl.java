@@ -1,5 +1,6 @@
 package kim.jerok.practice_spring_24.order;
 
+import kim.jerok.practice_spring_24.annotation.MainDiscountPolicy;
 import kim.jerok.practice_spring_24.discount.DiscountPolicy;
 import kim.jerok.practice_spring_24.member.Member;
 import kim.jerok.practice_spring_24.member.MemberRepository;
@@ -13,7 +14,7 @@ public class OrderServiceImpl implements OrderService {
     private final DiscountPolicy discountPolicy;
 
     @Autowired
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
